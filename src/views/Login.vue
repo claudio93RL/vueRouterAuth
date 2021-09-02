@@ -1,6 +1,7 @@
 <template>
   <div id="login">
     <img src="../assets/logo.png" class="img-inicial" />
+    <p>email: prueba@prueba.com pass: 123456</p>
     <el-form label-width="100px" class="form-login" :model="formLabelAlign">
       <el-input
         placeholder="Correo electrónico"
@@ -42,6 +43,12 @@ export default {
         .then((acept) => {
           console.log("oh yeah acept", acept);
           this.$router.push("home");
+        })
+        .catch((error) => {
+          Message({
+            type: "error",
+            message: error.message,
+          });
         });
     },
   },
